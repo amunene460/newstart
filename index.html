@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alimaq - Premium Herbs & Spices</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="light-theme">
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <span>Alimaq</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#sell">Sell With Us</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="theme-toggle" id="themeToggle" title="Toggle dark/light mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="cart-icon" id="cartIcon" title="View shopping cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+                <button class="btn btn-secondary" id="loginBtn" title="Login to your account">Login</button>
+                <button class="btn btn-primary" id="registerBtn" title="Create a new account">Register</button>
+                <button class="btn btn-secondary admin-btn" id="adminBtn" title="Access admin dashboard">Admin</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Premium Herbs & Spices</h1>
+            <p>Discover the finest selection of medicinal herbs, spices, and natural remedies from Kenya and beyond.</p>
+            <button class="btn btn-primary" id="shopNowBtn">Shop Now</button>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products">
+        <h2 class="section-title">Our Products</h2>
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">All Products</button>
+            <button class="filter-btn" data-filter="herbs">Medicinal Herbs</button>
+            <button class="filter-btn" data-filter="spices">Spices</button>
+            <button class="filter-btn" data-filter="teas">Herbal Teas</button>
+            <button class="filter-btn" data-filter="oils">Essential Oils</button>
+        </div>
+        <div class="products-grid" id="productsGrid">
+            <!-- Products will be loaded here by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Sell with Alimaq Section -->
+    <section class="sell-section" id="sell">
+        <div class="sell-content">
+            <h2>Sell With Alimaq</h2>
+            <p>Join our marketplace and reach thousands of customers interested in natural products. We handle the platform, you focus on your products.</p>
+            <button class="btn btn-primary" id="sellWithUsBtn">Start Selling Today</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Alimaq</h3>
+                <p>Your trusted source for premium herbs, spices, and natural remedies from Kenya.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#sell">Sell With Us</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="#shipping">Shipping Info</a></li>
+                    <li><a href="#returns">Returns & Refunds</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#terms">Terms of Service</a></li>
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</li>
+                    <li><i class="fas fa-phone"></i> +254 700 123 456</li>
+                    <li><i class="fas fa-envelope"></i> info@alimaq.co.ke</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 Alimaq. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 class="modal-title">Login to Your Account</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full-width">Login</button>
+            </form>
+            <p class="modal-link-text">
+                Don't have an account? <a href="#" id="showRegister">Register here</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 class="modal-title">Create an Account</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="registerName">Full Name</label>
+                    <input type="text" id="registerName" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">Email</label>
+                    <input type="email" id="registerEmail" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Password</label>
+                    <input type="password" id="registerPassword" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerConfirmPassword">Confirm Password</label>
+                    <input type="password" id="registerConfirmPassword" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full-width">Register</button>
+            </form>
+            <p class="modal-link-text">
+                Already have an account? <a href="#" id="showLogin">Login here</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="modal" id="cartModal">
+        <div class="modal-content cart-modal">
+            <span class="close-modal">&times;</span>
+            <h2 class="modal-title">Your Cart</h2>
+            <div id="cartItems">
+                <!-- Cart items will be loaded here -->
+            </div>
+            <div class="cart-total">
+                Total: KSh <span id="cartTotal">0</span>
+            </div>
+            <button class="btn btn-primary btn-full-width btn-checkout" id="checkoutBtn">Checkout with M-Pesa</button>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="modal" id="checkoutModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 class="modal-title">Checkout with M-Pesa</h2>
+            <div class="mpesa-logo">
+                M-PESA
+            </div>
+            <form id="checkoutForm">
+                <div class="form-group">
+                    <label for="phoneNumber">M-Pesa Phone Number</label>
+                    <input type="tel" id="phoneNumber" class="form-control" placeholder="07XX XXX XXX" required>
+                </div>
+                <div class="form-group">
+                    <p>Total Amount: KSh <span id="checkoutTotal">0</span></p>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full-width">Pay Now</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Sell With Us Modal -->
+    <div class="modal" id="sellModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 class="modal-title">Sell With Alimaq</h2>
+            <p class="modal-description">Fill out this form to start selling your products on our platform. We charge a 10% commission on all sales.</p>
+            <form id="sellForm">
+                <div class="form-group">
+                    <label for="sellerName">Business Name</label>
+                    <input type="text" id="sellerName" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="sellerEmail">Email</label>
+                    <input type="email" id="sellerEmail" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="sellerPhone">Phone Number</label>
+                    <input type="tel" id="sellerPhone" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="productType">What products do you sell?</label>
+                    <textarea id="productType" class="form-control" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full-width">Submit Application</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div class="admin-panel" id="adminPanel">
+        <div class="admin-header">
+            <h2>Admin Dashboard</h2>
+            <button class="btn btn-secondary" id="logoutAdmin">Logout</button>
+        </div>
+        <div class="admin-tabs">
+            <button class="admin-tab active" data-tab="products">Products</button>
+            <button class="admin-tab" data-tab="sellers">Sellers</button>
+            <button class="admin-tab" data-tab="orders">Orders</button>
+            <button class="admin-tab" data-tab="analytics">Analytics</button>
+        </div>
+        <div class="admin-content active" id="adminProducts">
+            <h3>Product Management</h3>
+            <button class="btn btn-primary btn-add-product" id="addProductBtn">Add New Product</button>
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Stock</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="adminProductsTable">
+                    <!-- Products will be loaded here -->
+                </tbody>
+            </table>
+        </div>
+        <div class="admin-content" id="adminSellers">
+            <h3>Seller Management</h3>
+            <div id="sellersList">
+                <!-- Sellers will be loaded here -->
+            </div>
+        </div>
+        <div class="admin-content" id="adminOrders">
+            <h3>Order Management</h3>
+            <div id="ordersList">
+                <!-- Orders will be loaded here -->
+            </div>
+        </div>
+        <div class="admin-content" id="adminAnalytics">
+            <h3>Analytics</h3>
+            <div class="analytics-cards">
+                <div class="analytics-card">
+                    <h4>Total Sales</h4>
+                    <p>KSh <span id="totalSales">0</span></p>
+                </div>
+                <div class="analytics-card">
+                    <h4>Total Orders</h4>
+                    <p><span id="totalOrders">0</span></p>
+                </div>
+                <div class="analytics-card">
+                    <h4>Total Products</h4>
+                    <p><span id="totalProducts">0</span></p>
+                </div>
+                <div class="analytics-card">
+                    <h4>Total Sellers</h4>
+                    <p><span id="totalSellers">0</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
